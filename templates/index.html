@@ -7,38 +7,19 @@
 </head>
 <body>
     <h1>URL Authentication Status</h1>
-    <form id="status-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Get HTTP Status</button>
-    </form>
-    <div id="result"></div>
-    <script>
-        document.getElementById("status-form").addEventListener("submit", async (event) => {
-            event.preventDefault();
-
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            const response = await fetch("/get_status", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-            });
-
-            const data = await response.json();
-
-            let resultHTML = '<table><tr><th>URL</th><th>Status Code</th><th>Error</th></tr>';
-            data.results.forEach((result) => {
-                resultHTML += `<tr><td>${result.url}</td><td>${result.status_code || ''}</td><td>${result.error || ''}</td></tr>`;
-            });
-            resultHTML += '</table>';
-            document.getElementById("result").innerHTML = resultHTML;
-        });
-    </script>
+    <table>
+        <tr>
+            <th>URL</th>
+            <th>Status Code</th>
+            <th>Error</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.url }}</td>
+            <td>{{ result.status_code or '' }}</td>
+            <td>{{ result.error or '' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
