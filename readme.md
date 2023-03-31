@@ -31,7 +31,7 @@ docker build -t url-authentication-status .
 
 
 
-docker run -p 5000:5000 -e USERNAME='your_username' -e PASSWORD='your_password' url-authentication-status
+docker run -p 5000:5000 -e USERNAME='xxxxxxxxxx' -e PASSWORD='xxxxxxxxxxx' url_auth_status
 
 
 Replace `your_username` and `your_password` with the actual username and password.
