@@ -1,6 +1,6 @@
 import os
 import time
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify
 import requests
 from requests.auth import HTTPBasicAuth
 
@@ -29,10 +29,9 @@ def get_http_status():
             start_time = time.time()
             response = requests.get(url, auth=HTTPBasicAuth(username, password), timeout=30)
             response_time = round((time.time() - start_time) * 1000, 2)  # in milliseconds
-            results.append({'url': url, 'status_code': response.status_code, 'response_time': response_time,
-                            'requester_ip': request.remote_addr, 'dns_resolution': socket.gethostbyname(url)})
+            results.append({'url': url, 'status_code': response.status_code, 'response_time': response_time})
         except requests.exceptions.RequestException as e:
-            results.append({'url': url, 'error': str(e), 'requester_ip': request.remote_addr})
+            results.append({'url': url, 'error': str(e)})
 
     return results
 
