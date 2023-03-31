@@ -8,8 +8,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/check_status')
+def check_status():
     results = get_http_status()
-    return render_template('index.html', results=results)
+    return jsonify(results)
 
 def get_http_status():
     username = os.environ['USERNAME']
@@ -23,8 +27,8 @@ def get_http_status():
     for url in urls:
         try:
             start_time = time.time()
-            response = requests.get(url, auth=HTTPBasicAuth(username, password))
-            response_time = round((time.time() - start_time) * 1000, 2) # in milliseconds
+            response = requests.get(url, auth=HTTPBasicAuth(username, password), timeout=30)
+            response_time = round((time.time() - start_time) * 1000, 2)  # in milliseconds
             results.append({'url': url, 'status_code': response.status_code, 'response_time': response_time})
         except requests.exceptions.RequestException as e:
             results.append({'url': url, 'error': str(e)})
