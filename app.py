@@ -1,4 +1,5 @@
 import os
+import time
 from flask import Flask, render_template, jsonify
 import requests
 from requests.auth import HTTPBasicAuth
@@ -21,8 +22,10 @@ def get_http_status():
 
     for url in urls:
         try:
+            start_time = time.time()
             response = requests.get(url, auth=HTTPBasicAuth(username, password))
-            results.append({'url': url, 'status_code': response.status_code})
+            response_time = round((time.time() - start_time) * 1000, 2) # in milliseconds
+            results.append({'url': url, 'status_code': response.status_code, 'response_time': response_time})
         except requests.exceptions.RequestException as e:
             results.append({'url': url, 'error': str(e)})
 
