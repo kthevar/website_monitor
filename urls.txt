@@ -11,7 +11,6 @@ https://biomedeng.jmir.org/editor
 https://cancer.jmir.org/editor
 https://cardio.jmir.org/editor
 https://challenges.jmir.org/editor
-https://convert.jmir.org/editor
 https://data.jmir.org/editor
 https://derma.jmir.org/editor
 https://games.jmir.org/editor
