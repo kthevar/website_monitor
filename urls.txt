@@ -2,7 +2,6 @@ https://jmir.org/editor
 https://mental.jmir.org/editor
 https://ai.jmir.org/editor
 https://neuro.jmir.org/editor
-https://ai.jmir.org/editor
 https://diabetes.jmir.org/editor
 https://aging.jmir.org/editor
 https://apinj.jmir.org/editor
