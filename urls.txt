@@ -33,6 +33,12 @@ https://www.researchprotocols.org/editor
 https://preprints.jmir.org/editor
 https://jopm.jmir.org/editor
 https://xbio.jmir.org/editor
+https://prod1.jmir.org/editor
+https://prod2.jmir.org/editor
+https://prod3.jmir.org/editor
+https://prod4.jmir.org/editor
+https://prod5.jmir.org/editor
+https://prod7.jmir.org/editor
 
 	
 
