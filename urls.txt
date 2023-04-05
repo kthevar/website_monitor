@@ -39,6 +39,6 @@ https://prod3.jmir.org/editor
 https://prod4.jmir.org/editor
 https://prod5.jmir.org/editor
 https://prod7.jmir.org/editor
-
+https://accounts.jmir.pub/login
 	
 
